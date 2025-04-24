@@ -5,12 +5,16 @@ export const posts = () => {
     return await api.get("/posts");
   };
 
+  const getById = async (id) => {
+    return await api.get(`/posts/${id}`);
+  };
+
   const like = async (id) => {
-    return await api.get(`/posts/${id}/like`);
+    return await api.post(`/posts/${id}/like`);
   };
 
   const unlike = async (id) => {
-    return await api.get(`/posts/${id}/unlike`);
+    return await api.post(`/posts/${id}/unlike`);
   };
 
   const liked = async (id) => {
@@ -22,5 +26,6 @@ export const posts = () => {
     like,
     unlike,
     liked,
+    getById,
   };
 };

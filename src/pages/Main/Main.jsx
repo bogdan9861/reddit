@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import Header from "../components/header/Header";
-import Feed from "../components/feed/Feed";
-import SignModal from "../components/SignModal/SignModal";
-import { service } from "../api/service";
+import Header from "../../components/header/Header";
+import Feed from "../../components/feed/Feed";
+import SignModal from "../../components/SignModal/SignModal";
+import { service } from "../../api/service";
 
 const Main = () => {
   const [name, setName] = useState("");
@@ -68,7 +68,6 @@ const Main = () => {
 
   return (
     <>
-      <Header isAuth={isAuth} />
       <Feed />
       <SignModal
         open={searchParams.get("window") === "login"}

@@ -24,10 +24,12 @@ const Header = ({ isAuth }) => {
   return (
     <header className="header">
       <div className="header__inner">
-        <h1 className="header__logo">HubTalk</h1>
+        <Link to={"/"}>
+          <h1 className="header__logo">ThreadNet</h1>
+        </Link>
 
         <div className="header__search-wrapper">
-          <input className="header__search" placeholder="Поиск по HubTalk" />
+          <input className="header__search" placeholder="Поиск по ThreadNet" />
         </div>
 
         <div className="header__controls">
