@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import Heart from "../../assets/icons/Heart";
 import Comment from "../../assets/icons/Comment";
@@ -11,6 +11,8 @@ import { service } from "../../api/service";
 
 const Post = ({ post }) => {
   const user = post?.User;
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(0);
@@ -31,6 +33,11 @@ const Post = ({ post }) => {
   }, [post]);
 
   const handleLike = () => {
+    if (!localStorage.getItem("hub-talk-token")) {
+      setSearchParams("window=login");
+      return;
+    }
+
     if (isLiked) {
       setIsLiked(false);
 

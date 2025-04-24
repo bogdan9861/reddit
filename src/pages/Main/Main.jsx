@@ -10,7 +10,6 @@ const Main = () => {
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuth, setIsAuth] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -49,15 +48,10 @@ const Main = () => {
     },
   ];
 
-  useEffect(() => {
-    setIsAuth(!!localStorage.getItem("hub-talk-token"));
-  }, []);
-
   const onLogin = () => {
     signIn({ login, password }).then((res) => {
       setSearchParams("");
-
-      setIsAuth(true);
+      window.location.reload();
       localStorage.setItem("hub-talk-token", res.data.token);
     });
   };
