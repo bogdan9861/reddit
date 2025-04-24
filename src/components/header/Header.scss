@@ -1,0 +1,121 @@
+.header {
+  border-bottom: 1px solid #3e4142;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background: #0e1113;
+
+  // .header__inner
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 50px;
+  }
+
+  // .header__logo
+
+  &__logo {
+    font-size: 21px;
+  }
+
+  // .header__search
+
+  &__search-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 560px;
+    width: 100%;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-image: url("https://img.icons8.com/?size=100&id=59878&format=png&color=FFFFFF");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    padding: 13px 40px 13px 40px;
+
+    border: none;
+    border-radius: 25px;
+
+    background-color: #2a3236;
+    color: #fafafa;
+
+    &::placeholder {
+      color: #b3b3b3;
+      font-size: 13px;
+      font-weight: 500;
+
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+
+  // .header__controls
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+  }
+
+  // .header__create
+  &__create-wrapper {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 7px;
+
+      background-image: url("https://img.icons8.com/?size=100&id=11153&format=png&color=FFFFFF");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__create {
+    background-color: transparent;
+    border: none;
+    padding-left: 35px;
+
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  &__btn-login {
+    padding: 10px;
+    width: 80px;
+    border-radius: 20px;
+    border: none;
+    background-color: #d13434;
+    font-weight: 600;
+    font-size: 15px;
+
+    text-align: center;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+}

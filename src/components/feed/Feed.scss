@@ -1,0 +1,12 @@
+.feed {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // .feed__list
+
+  &__list {
+    margin-top: 82px;
+  }
+}
