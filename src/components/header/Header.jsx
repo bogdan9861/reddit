@@ -33,7 +33,7 @@ const Header = ({ isAuth }) => {
         </div>
 
         <div className="header__controls">
-          {isAuth ? (
+          {userData ? (
             <>
               <div className="header__create-wrapper">
                 <button className="header__create">Create</button>
