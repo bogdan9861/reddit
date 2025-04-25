@@ -17,14 +17,10 @@ const Feed = () => {
     const title = searchParams.get("title");
     const tags = searchParams.get("tags");
 
-    getAll(title || "", tags).then((res) => {
+    getAll(title || "", tags || "").then((res) => {
       setData(res.data);
     });
   }, [searchParams.get("title"), searchParams.get("tags")]);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <div className="feed">
