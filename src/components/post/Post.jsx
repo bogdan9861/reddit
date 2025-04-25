@@ -5,11 +5,12 @@ import Heart from "../../assets/icons/Heart";
 import Comment from "../../assets/icons/Comment";
 
 import { setImage } from "../../utils/setImage";
+import { formatDate } from "../../utils/formatDate";
 
 import "./Post.scss";
 import { service } from "../../api/service";
 
-const Post = ({ post }) => {
+const Post = ({ post, onCommentsClick }) => {
   const user = post?.User;
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,9 +25,11 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     if (post) {
-      liked(post.id).then((res) => {
-        setIsLiked(res.data.isLiked);
-      });
+      liked(post.id)
+        .then((res) => {
+          setIsLiked(res.data.isLiked);
+        })
+        .catch((e) => {});
 
       setLikes(post.rating);
     }
@@ -61,9 +64,12 @@ const Post = ({ post }) => {
           src={setImage(user?.avatar)}
           alt="profile photo"
         />
-        <Link className="post__header-name" to={"/#"}>
-          {user?.name}
-        </Link>
+        <div className="post__header-content">
+          <Link className="post__header-name" to={"/#"}>
+            {user?.name}
+          </Link>
+          <span className="post__header-date">{formatDate(post?.date)}</span>
+        </div>
       </div>
       <Link to={`/post/${post.id}/comments`}>
         <div className="post__content">
@@ -98,7 +104,11 @@ const Post = ({ post }) => {
         </button>
         <button
           className="post__controls-btn"
-          onClick={() => navigate(`/post/${post.id}/comments`)}
+          onClick={
+            !onCommentsClick
+              ? () => navigate(`/post/${post.id}/comments`)
+              : onCommentsClick
+          }
         >
           <Comment size={20} color="#fff" />
           <span>{post?.comments?.length}</span>

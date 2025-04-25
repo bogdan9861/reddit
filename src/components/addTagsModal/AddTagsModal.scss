@@ -1,0 +1,40 @@
+.tagsModal {
+  // .tagsModal__title
+
+  &__title {
+    margin: 0 auto;
+
+    font-size: 23px;
+    color: #b7cad4;
+    margin-bottom: 30px;
+  }
+
+  // .tagsModal__list
+
+  &__list {
+    margin-bottom: 50px;
+  }
+
+  // .tagsModal__item
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+  }
+
+  &__item-content {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+  }
+
+  // .tagsModal__item-text
+
+  &__item-text {
+    font-size: 15px;
+    font-weight: 500;
+  }
+}

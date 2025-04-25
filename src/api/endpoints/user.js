@@ -5,6 +5,19 @@ export const user = () => {
     return await api.post("/users/login", { login, password });
   };
 
+  const register = async ({ name, login, description, password }) => {
+    return await api.post("/users/register", {
+      name,
+      login,
+      description,
+      password,
+    });
+  };
+
+  const getUserById = async (id) => {
+    return await api.get(`/users/${id}`);
+  };
+
   const current = async () => {
     return await api.get("/users");
   };
@@ -12,5 +25,7 @@ export const user = () => {
   return {
     signIn,
     current,
+    getUserById,
+    register,
   };
 };

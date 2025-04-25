@@ -1,6 +1,11 @@
 .login {
   &__body {
-    height: 600px;
+    min-height: 600px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__body-inner {
@@ -56,6 +61,8 @@
     color: #9aa9b2;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    margin-bottom: 30px;
+    display: block;
 
     a {
       color: #648efc;

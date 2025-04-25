@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { service } from "../../api/service";
 import { setImage } from "../../utils/setImage";
 
 const Header = ({ isAuth }) => {
   const [userData, setUserData] = useState(null);
+  const [searchTitle, setSearchTitle] = useState("");
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const { user } = service();
   const { current } = user;
@@ -17,9 +20,15 @@ const Header = ({ isAuth }) => {
       .catch((e) => console.log(e));
   }, []);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  const onSearch = (e) => {
+    if (e.key === "Enter") {
+      if (searchTitle) {
+        setSearchParams(`title=${searchTitle}`);
+      } else {
+        setSearchParams("");
+      }
+    }
+  };
 
   return (
     <header className="header">
@@ -29,21 +38,29 @@ const Header = ({ isAuth }) => {
         </Link>
 
         <div className="header__search-wrapper">
-          <input className="header__search" placeholder="Поиск по ThreadNet" />
+          <input
+            className="header__search"
+            placeholder="Поиск по ThreadNet"
+            onChange={(e) => setSearchTitle(e.target.value)}
+            onKeyDown={onSearch}
+          />
         </div>
 
         <div className="header__controls">
           {userData ? (
             <>
               <div className="header__create-wrapper">
-                <button className="header__create">Create</button>
+                <Link className="header__create" to={"/create"}>
+                  Create
+                </Link>
               </div>
-
-              <img
-                className="header__avatar"
-                src={setImage(userData?.avatar)}
-                alt="avatar"
-              />
+              <Link to={`/profile/${userData?.id}`}>
+                <img
+                  className="header__avatar"
+                  src={setImage(userData?.avatar)}
+                  alt="avatar"
+                />
+              </Link>
             </>
           ) : (
             <>

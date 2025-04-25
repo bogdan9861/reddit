@@ -5,9 +5,11 @@ import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
 import SignModal from "../../components/SignModal/SignModal";
 import { service } from "../../api/service";
+import Aside from "../../components/aside/Aside";
 
 const Main = () => {
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +17,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   const { user } = service();
-  const { signIn } = user;
+  const { signIn, register } = user;
 
   const loginFields = [
     {
@@ -46,18 +48,30 @@ const Main = () => {
       value: password,
       cb: (e) => setPassword(e.target.value),
     },
+    {
+      placeholder: "Придумайте описание для профиля",
+      value: description,
+      type: "textarea",
+      cb: (e) => setDescription(e.target.value),
+    },
   ];
+
+  const onSuccessLogin = (res) => {
+    setSearchParams("");
+    window.location.reload();
+    localStorage.setItem("hub-talk-token", res.data.token);
+  };
 
   const onLogin = () => {
     signIn({ login, password }).then((res) => {
-      setSearchParams("");
-      window.location.reload();
-      localStorage.setItem("hub-talk-token", res.data.token);
+      onSuccessLogin(res);
     });
   };
 
   const onRegister = () => {
-    console.log("register");
+    register({ name, login, description, password }).then((res) => {
+      onSuccessLogin(res);
+    });
   };
 
   return (

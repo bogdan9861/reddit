@@ -12,6 +12,27 @@
     max-width: 832px;
   }
 
+  &__back {
+    position: fixed;
+    top: 100px;
+
+    transform: translateX(-50px);
+
+    width: 35px;
+    height: 35px;
+
+    background-color: #232629;
+    border: none;
+    padding: 9px;
+    border-radius: 100%;
+
+    z-index: 99;
+
+    &:hover {
+      background-color: #313438;
+    }
+  }
+
   // .comments__input
 
   &__input {
@@ -24,6 +45,54 @@
     margin-bottom: 20px;
   }
 
+  &__textarea-wrapper {
+    position: relative;
+    border: 1px solid #404143;
+    border-radius: 20px;
+
+    min-height: 130px;
+
+    padding: 20px 0;
+    margin-bottom: 30px;
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: 0 20px;
+    min-height: 90px;
+    max-height: 200px;
+    background-color: transparent;
+    outline: none;
+
+    margin-bottom: 20px;
+    resize: vertical;
+
+    border: none;
+
+    scrollbar-width: 0;
+  }
+
+  &__textarea-btns {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+  }
+
+  &__textarea-btn {
+    width: 75px;
+
+    border-radius: 20px;
+    padding: 8px;
+
+    border: none;
+
+    font-size: 12px;
+  }
+
   // .comments__list
 
   &__list {
@@ -32,15 +101,28 @@
   // .comments__item
 
   &__item {
+    margin-bottom: 20px;
+
+    display: flex;
+    gap: 0 10px;
+    margin-bottom: 20px;
   }
 
-  // .comments__item-header
-
-  &__item-header {
+  &__item-head {
     display: flex;
-    align-items: center;
-    gap: 0 10px;
-    margin-bottom: 5px;
+    gap: 0 18px;
+  }
+
+  &__item-date {
+    font-size: 11px;
+
+    color: #89929b;
+    transform: translateY(2px);
+  }
+
+  &__item-content {
+    display: flex;
+    flex-direction: column;
   }
 
   &__item-header__img {
@@ -52,14 +134,36 @@
 
   &__item-header__name {
     font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 7px;
+
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      right: -11px;
+      width: 3px;
+      height: 3px;
+      border-radius: 100%;
+      background-color: #89929b;
+    }
   }
 
   // .comments__item-text
 
   &__item-text {
     font-size: 13px;
-    padding-left: 45px;
 
     color: #b7cad4;
   }
+}
+
+.cancel {
+  background-color: #232629;
+}
+
+.send {
+  background-color: #355414;
 }

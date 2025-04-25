@@ -1,0 +1,129 @@
+.create {
+  width: calc(100vw - 270px);
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  // .create__inner
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  // .create__title
+
+  &__title {
+    margin-bottom: 25px;
+    color: #b7cad4;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
+  // .create__tabs
+
+  &__tabs {
+  }
+
+  // .create__tab
+
+  &__tab {
+  }
+
+  // .create__input
+
+  &__input {
+    width: 100%;
+    padding: 17px;
+    background-color: transparent;
+    border-radius: 16px;
+
+    border: 1px solid #404143;
+    margin-bottom: 20px;
+  }
+
+  // .create__tags-btn
+
+  &__tags-btn {
+    background-color: #2a3236;
+    border: none;
+    border-radius: 15px;
+
+    padding: 7px 20px;
+    width: fit-content;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+  }
+
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  &__tag {
+    font-size: 13px;
+    background-color: #115bca;
+    padding: 4px 12px;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+  }
+
+  &__tag-text {
+  }
+
+  // .create__textarea
+
+  &__textarea {
+    border: 1px solid #404143;
+    border-radius: 20px;
+
+    padding: 20px;
+    min-height: 90px;
+    max-height: 200px;
+    background-color: transparent;
+    outline: none;
+
+    margin-bottom: 20px;
+    resize: vertical;
+
+    scrollbar-width: 0;
+  }
+
+  &__dragger-label {
+    font-size: 14px;
+    color: rgba($color: #ffffff, $alpha: 0.5);
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    width: fit-content;
+    max-width: 200px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    background-color: #115bca;
+
+    margin-top: 10px;
+    margin-left: auto;
+
+    &:disabled {
+      background-color: #4b4b4b;
+      cursor: no-drop;
+    }
+  }
+}

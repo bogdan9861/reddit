@@ -1,8 +1,14 @@
 import api from "../api";
 
 export const posts = () => {
-  const getAll = async () => {
-    return await api.get("/posts");
+  const getAll = async (title = "", tags = "") => {
+    return await api.get(`/posts?title=${title}&tags=${tags}`);
+  };
+
+  const post = async (data) => {
+    return await api.post(`/posts`, data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   };
 
   const getById = async (id) => {
@@ -22,6 +28,7 @@ export const posts = () => {
   };
 
   return {
+    post,
     getAll,
     like,
     unlike,

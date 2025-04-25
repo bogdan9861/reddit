@@ -28,14 +28,35 @@ const LoginModal = ({
             <span>OR</span>
           </Divider>
           <div className="login__form">
-            {fields?.map((input) => (
-              <input
-                className="login__input"
-                placeholder={input.placeholder}
-                onChange={input.cb}
-                value={input.value}
-              />
-            ))}
+            {fields?.map((input) => {
+              console.log(input.type);
+
+              if (input?.type === "textarea") {
+                return (
+                  <textarea
+                    style={{
+                      minHeight: 70,
+                      height: 100,
+                      maxHeight: 140,
+                      resize: "vertical",
+                    }}
+                    className="login__input"
+                    placeholder={input.placeholder}
+                    onChange={input.cb}
+                    value={input.value}
+                  />
+                );
+              }
+
+              return (
+                <input
+                  className="login__input"
+                  placeholder={input.placeholder}
+                  onChange={input.cb}
+                  value={input.value}
+                />
+              );
+            })}
           </div>
           <span className="login__link">
             {linkLabel} <Link to={link}>{linkText}</Link>
