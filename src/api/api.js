@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: `https://forum-server-1-mhd5.onrender.com/api`,
+  baseURL: `https://forum-server-tpee.onrender.com/api`,
   // baseURL: `http://localhost:8080/api`,
 });
 
